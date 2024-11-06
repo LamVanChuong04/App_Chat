@@ -33,3 +33,4 @@ server.listen(PORT, () => {
   connectToMongoDB();
   console.log(`Server is running on:::http://localhost:${PORT}`);
 });
+
