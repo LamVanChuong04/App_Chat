@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useLogin from '../../hooks/useLogin';
-import logo from '/logo.png';
+import logo from '/logo-uth.png';
 
 const Login = () => {
 	const [username, setUsername] = useState('');
@@ -19,10 +19,10 @@ const Login = () => {
 			<div className='flex items-center justify-center gap-3 mb-36'>
 				<img
 					src={logo}
-					alt='Chat VDH Logo'
-					className='h-[40px] object-contain'
+					alt='Chat nhom 05 Logo'
+					className='h-[60px] object-contain'
 				/>
-				<h2 className='text-2xl font-bold uppercase'>Chat VDH</h2>
+				<h2 className='text-2xl font-bold uppercase'></h2>
 			</div>
 			<div>
 				<div className='mx-auto flex w-[600px] flex-col items-center justify-center border rounded-lg py-16'>

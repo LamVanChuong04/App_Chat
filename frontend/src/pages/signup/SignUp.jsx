@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import GenderCheckbox from './GenderCheckbox';
 import { useState } from 'react';
 import useSignup from '../../hooks/useSignup';
-import logo from '/logo.png';
+import logo from '/logo-uth.png';
 
 const SignUp = () => {
 	const [inputs, setInputs] = useState({
@@ -30,9 +30,9 @@ const SignUp = () => {
 				<img
 					src={logo}
 					alt='Chat VDH Logo'
-					className='h-[40px] object-contain'
+					className='h-[60px] object-contain'
 				/>
-				<h2 className='text-2xl font-bold uppercase'>Chat VDH</h2>
+				<h2 className='text-2xl font-bold uppercase'></h2>
 			</div>
 
 			<div>

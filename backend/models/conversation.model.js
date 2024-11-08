@@ -22,6 +22,10 @@ const conversationSchema = new mongoose.Schema(
 		isStar: {
 			type: Boolean,
 			default: false,
+		},
+		profilePic: {
+			type: String,
+			default: "",
 		}
 	},
 	{ timestamps: true }

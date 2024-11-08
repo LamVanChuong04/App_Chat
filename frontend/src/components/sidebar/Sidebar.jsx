@@ -96,10 +96,9 @@ const Sidebar = () => {
 						<SearchInput />
 					)}
 					<div className='max-h-full overflow-y-scroll w-full'>
-						{currentTab === 'Đoạn chat' && <Conversations />}
+						
 						{currentTab === 'Đang hoạt động' && <Friends />}
-						{currentTab === 'Đã xóa gần đây' && <RecycleBin />}
-						{currentTab === 'Đánh dấu' && <StarConversation />}
+						
 					</div>
 				</div>
 			</div>
