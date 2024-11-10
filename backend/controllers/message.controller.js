@@ -4,9 +4,13 @@ import { getReceiverSocketId, io } from "../socket/socket.js";
 
 export const sendMessage = async (req, res) => {
 	try {
-		const { message } = req.body;
+		const { text, fontFamily, color, fontSize } = req.body; // Nhận các thuộc tính
 		const { id: receiverId } = req.params;
 		const senderId = req.user._id;
+
+		if (!text) {
+			return res.status(400).json({ error: "Message content is required" });
+		}
 
 		let conversation = await Conversation.findOne({
 			participants: { $all: [senderId, receiverId] },
@@ -21,23 +25,20 @@ export const sendMessage = async (req, res) => {
 		const newMessage = new Message({
 			senderId,
 			receiverId,
-			message,
+			message: text, // Lưu nội dung tin nhắn
+			fontFamily, // Lưu fontFamily
+			color, // Lưu màu sắc
+			fontSize, // Lưu kích thước chữ
 		});
 
 		if (newMessage) {
 			conversation.messages.push(newMessage._id);
 		}
 
-		// await conversation.save();
-		// await newMessage.save();
-
-		// this will run in parallel
 		await Promise.all([conversation.save(), newMessage.save()]);
 
-		// SOCKET IO FUNCTIONALITY WILL GO HERE
 		const receiverSocketId = getReceiverSocketId(receiverId);
 		if (receiverSocketId) {
-			// io.to(<socket_id>).emit() used to send events to specific client
 			io.to(receiverSocketId).emit("newMessage", newMessage);
 		}
 

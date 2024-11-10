@@ -16,9 +16,20 @@ const messageSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		// createdAt, updatedAt
+		fontFamily: {
+			type: String,
+			default: 'Arial, sans-serif', // Giá trị mặc định
+		},
+		color: {
+			type: String,
+			default: '#000000', // Giá trị mặc định
+		},
+		fontSize: {
+			type: Number,
+			default: 16, // Giá trị mặc định
+		},
 	},
-	{ timestamps: true }
+	{ timestamps: true } // Tự động thêm createdAt và updatedAt
 );
 
 const Message = mongoose.model("Message", messageSchema);
